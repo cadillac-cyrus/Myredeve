@@ -1,0 +1,705 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+  background-color: whitesmoke;
+}
+
+.form-container {
+  width: 40%;
+  height: 99%;
+  /* border-style: solid;
+  border-color: black; */
+  /* margin-top: 50px; */
+  /* margin-left: 30%; */
+}
+
+.login-container {
+  width: 500px;
+  padding: 0px 20px;
+  max-width: 90%;
+  margin: 0px auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container h1 {
+  margin-left: 4%;
+  margin-bottom: 40px;
+  margin-top: 30%;
+}
+
+.form-container form {
+  margin-top: 7%;
+  margin-left: 25px;
+  /* border-style: solid;
+  border-color: black; */
+  height: 50%;
+  width: 90%;
+}
+
+label {
+  /* display: flex; */
+  margin-bottom: 10px;
+}
+
+.form-container form input {
+  width: 100%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-width: 1px;
+  height: 17%;
+  margin-bottom: 20px;
+  padding: 0 1rem;
+  /* border-bottom: 3px; */
+}
+
+.form-container form input:focus {
+  /* Styles for when input is in focus */
+  border-style: solid;
+  border-width: 2px;
+  border-color: #007bff; /* Change border color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add box shadow */
+  outline: none; /* Remove default focus outline */
+}
+
+.form-container form a {
+  color: #164d9d;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 14px;
+  font-family: "Kanit", sans-serif;
+}
+.margin-top {
+  height: 10px;
+}
+
+.submit-button {
+  border: none;
+  background-color: #164d9d;
+  width: 100%;
+  height: 17%;
+  border-radius: 5px;
+  color: white;
+  font-weight: bolder;
+  margin-top: 20px;
+}
+
+.image-container {
+  /* border-style: solid;
+    border-color: black; */
+  height: 99%;
+  width: 60%;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%; /* Set the width of the image to fill the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure proper display */
+}
+
+header {
+  background-color: #0077b6;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 200px 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sub-text {
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  color: #7d819d;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Main content styles */
+main {
+  padding: 0px 200px;
+}
+
+main h1 {
+  margin: 30px 0px 0px;
+}
+
+.modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(213px, 1fr));
+  gap: 2rem;
+}
+
+.module {
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+  height: 370px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+  width: 230px;
+  padding-bottom: 16px;
+  padding-top: 30px;
+}
+
+.top-side {
+  margin: 0 29px;
+  height: 133px;
+}
+
+.subtitle {
+  color: #7d819d;
+  font-size: 14px;
+  line-height: 22px;
+  line-height: 19px;
+  margin-bottom: 0;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+.module-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.module-actions {
+  /* display: flex; */
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.module-actions a {
+  color: #164d9d;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 15px 29px;
+  text-decoration: none;
+}
+
+hr {
+  border-top: 1px solid #f3f3f3;
+  height: 0.8px;
+  margin: 20px 0 10px;
+}
+
+.view-btn {
+  /* margin: 0 0.5rem; */
+  /* padding: 0.5rem 1rem; */
+  border: none;
+  background-color: #0077b6;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 5px;
+  display: inline-block;
+  height: 55px;
+  max-width: 100%;
+  padding: 0 15px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.view-btn {
+  /* background: #164d9d; */
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 5px;
+  display: inline-block;
+  height: 55px;
+  max-width: 100%;
+  padding: 0 15px;
+  text-align: center;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Style links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when hovering over the dropdown content */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.modal-container {
+  height: 90%;
+  width: 30%;
+  border: 1px solid gray;
+  margin-top: 4%;
+  margin-left: 35%;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+}
+
+.student-payment-modal-container {
+  height: 80%;
+  width: 60%;
+  border: 1px solid gray;
+  margin-top: 4%;
+  margin-left: 35%;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+}
+
+/* Show the overlay and modal with transition when the modal is open */
+.modal-container:not(.hidden) + .overlay {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5); /* Darken the background */
+}
+
+.modal-container:not(.hidden) {
+  opacity: 1; /* Fade in the modal */
+}
+
+.modal-header-container {
+  padding: 30px 29px 0;
+  display: flex;
+}
+
+.modal-header {
+  color: #164d9d;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.4;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-body {
+  padding: 0 29px;
+  /* border: 1px solid black; */
+}
+
+.modal-body form {
+  display: block;
+  margin-top: 0em;
+  unicode-bidi: isolate;
+}
+
+.form-item-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  line-height: 1.28572;
+  width: 100%;
+}
+
+.form-item-wrapper-payments {
+  align-items: flex-start;
+  display: flex;
+  position: relative;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  line-height: 1.28572;
+}
+
+.form-item {
+  width: 100%;
+}
+
+.form-item-1 {
+  width: 100%;
+  display: flex;
+  /* width: 100%; */
+}
+
+.form-label {
+  color: #525252;
+  display: inline-block;
+  line-height: 1.33333;
+  line-height: 1rem;
+  margin-bottom: 0.5rem;
+  vertical-align: initial;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.32px;
+}
+
+.sub-div {
+  width: 50%;
+}
+
+.sub-div-2 {
+  width: 50%;
+  margin-left: 30px;
+}
+
+.text-input-wrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.text-input {
+  background-color: #ebe8e8;
+  border: none;
+  border-bottom: 1px solid #8d8d8d;
+  color: #161616;
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 2.5rem;
+  letter-spacing: 0.16px;
+  line-height: 1.28572;
+  outline: 2px solid transparent;
+  padding: 0 1rem;
+  width: 100%;
+  /* border-bottom: 3px; */
+}
+
+.text-input:focus {
+  /* Styles for when input is in focus */
+  border-style: solid;
+  border-width: 2px;
+  border-color: #007bff; /* Change border color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add box shadow */
+  outline: none; /* Remove default focus outline */
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+/* .students {
+
+} */
+.note-text {
+  font-size: 14px;
+  color: #7d819d;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.modal-submit-button {
+  border-radius: 5px;
+  display: inline-block;
+  height: 55px;
+  /* max-width: 100%; */
+  padding: 0 15px;
+  text-align: center;
+  border: none;
+  background-color: #164d9d;
+  width: 100%;
+  color: white;
+  font-weight: bolder;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.modal-submit-button:hover {
+  background-color: gray;
+  color: white;
+}
+
+.modal-cancel-button {
+  border: 1px solid red;
+  background-color: white;
+  color: red;
+  border-radius: 5px;
+  display: inline-block;
+  height: 55px;
+  padding: 0 15px;
+  text-align: center;
+  font-weight: bolder;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.modal-cancel-button:hover {
+  background-color: red;
+  color: white;
+}
+
+.padding {
+  padding: 0 3rem 0 1rem;
+}
+
+.option {
+  font-size: 17px;
+  font-weight: bolder;
+  display: block;
+  min-height: 1.2em;
+  /* height: 200px; */
+  padding: 0px 2px 1px;
+  white-space: nowrap;
+}
+
+.customheight {
+  height: 330px;
+}
+
+.select {
+  /* webkit-appearance: none; */
+  /* appearance: none; */
+  background-color: #f4f4f4;
+  border: none;
+  border-bottom: 1px solid #8d8d8d;
+  border-radius: 0;
+  color: #161616;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 2.5rem;
+  letter-spacing: 0.16px;
+  line-height: 1.28572;
+  opacity: 1;
+  /* outline: 2px solid transparent; */
+  outline-offset: -2px;
+  padding: 0 3rem 0 1rem;
+  transition: outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  width: 100%;
+}
+
+.bg-gray {
+  background-color: #ebebeb;
+}
+
+.close {
+  margin-left: 21%;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+  height: 90%;
+  width: 30%;
+  margin-top: 4%;
+  margin-left: 35%;
+  transition: background-color 0.3s ease;
+}
+
+.overlay-2 {
+  height: 330px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+  margin-top: 10%;
+  /* margin-left: 35%; */
+  transition: background-color 0.3s ease;
+}
+
+.overlay-3 {
+  /* height: 330px; */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+  margin-top: 5%;
+  margin-left: 20%;
+  transition: background-color 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.w-300 {
+  width: 70%;
+}
+
+.table-container {
+  width: 100%;
+}
+
+.data-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+thead {
+  width: 100%;
+}
+
+.data-table th {
+  line-height: 13px;
+  /* padding-bottom: 5px; */
+  /* padding-top: 5px; */
+  /* padding-left: 1rem; */
+  padding: 5px 16px;
+  padding-right: 1rem;
+  background: #f3f3f3;
+  color: #252525;
+  font-size: 14px;
+  font-weight: 600;
+  height: 37px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.data-table td {
+  height: 66px;
+  padding: 5px 16px;
+}
+
+.data-table tr:hover {
+  background: #c0bcbc;
+}
+
+.data-table th:nth-child(1) {
+  width: 25%;
+}
+
+.data-table th:nth-child(2) {
+  width: 20%;
+}
+.data-table th:nth-child(3) {
+  width: 20%;
+}
+.data-table th:nth-child(4) {
+  width: 35%;
+}
+
+.number-input {
+  border: none;
+  border-bottom: 1px solid #aab0c6;
+  color: #565656;
+  font-size: 16px;
+  height: 55px !important;
+  padding: 0 1rem;
+}
+
+.number-input:focus {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.scroll {
+  max-height: 60vh; 
+  overflow-y: auto;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar handle */
+  width: 3px;
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar handle on hover */
+}
+
+.mr {
+  margin-left: -20px;
+}
+
+.w-100 {
+  width: 100%;
+}
