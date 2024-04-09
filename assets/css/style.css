@@ -318,6 +318,17 @@ hr {
   transition: opacity 0.3s ease;
 }
 
+.other-payment-modal-container {
+  height: 90%;
+  width: 30%;
+  border: 1px solid gray;
+  margin-top: 4%;
+  margin-left: 35%;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+}
+
 /* Show the overlay and modal with transition when the modal is open */
 .modal-container:not(.hidden) + .overlay {
   display: block;
@@ -558,7 +569,7 @@ hr {
   left: 0;
   right: 0;
   background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(20px);
   z-index: 1;
   height: 90%;
   width: 30%;
@@ -575,7 +586,7 @@ hr {
   left: 0;
   right: 0;
   background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(20px);
   z-index: 1;
   margin-top: 10%;
   /* margin-left: 35%; */
@@ -590,7 +601,7 @@ hr {
   left: 0;
   right: 0;
   background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(20px);
   z-index: 1;
   margin-top: 5%;
   margin-left: 20%;
@@ -677,6 +688,11 @@ thead {
 
 .scroll {
   max-height: 60vh; 
+  overflow-y: auto;
+}
+
+.scroll-2 {
+  max-height: 73vh; 
   overflow-y: auto;
 }
 
