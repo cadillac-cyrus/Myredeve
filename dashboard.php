@@ -1,0 +1,784 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is logged in, if not redirect to login page
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Include your database connection file
+include_once "db_connection.php";
+
+// Fetch additional user-specific data from the database, if needed
+// For example, you might fetch user details to display on the dashboard
+$username = $_SESSION["username"];
+$sql = "SELECT * FROM users WHERE username = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyRedeye Learning Hub</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <script src="./assets/js/modal.js"></script>
+    <!-- <script src="https://unpkg.com/simplebar/dist/simplebar.min.js"></script> -->
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.3.0-web/css/all.min.css">
+    <script src="./assets/fonts/fontawesome-free-6.3.0-web/js/all.min.js"></script>
+</head>
+
+<body >
+    <header>
+        <div class="logo">Myredeye Learning Hub</div>
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn"><?php echo $user['username']; ?></button>
+                <div class="dropdown-content">
+                    <a href="#">Log out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Navigate</h1>
+        <p class="sub-text">Explore features and modules</p>
+        <div class="margin-top"></div>
+        <div class="modules">
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon"><i class="fa-solid fa-book"></i></div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a href="" id="btn-open">+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a href="">VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon"><i class="fa-solid fa-money-bill"></i></div>
+                    <h2>Budget</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a href="" id="btn-open2">+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a href="">GENERATE REPORT</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon"><i class="fa-solid fa-dollar"></i></div>
+                    <h2>Cash Recieved</h2>
+                    <p class="subtitle">N/A</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a href="" id="btn-open3">STUDENT CASH</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a href="" id="btn-open4">OTHER CASH</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h2>Expenses</h2>
+                    <p class="subtitle">N/A</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a href="" id="btn-open5">RECORD NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>PURCHASES</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h2>Students</h2>
+                    <p class="subtitle">ENROLLED</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>ADD NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>STATEMENTS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon"><i class="fa-solid fa-school"></i></div>
+                    <h2>Class</h2>
+                    <p class="subtitle">13 CLASSES</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>ADD NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>CLASS LABEL</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <!-- <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div>
+            <div class="module">
+                <div class="top-side">
+                    <div class="module-icon">📚</div>
+                    <h2>Academic Year</h2>
+                    <p class="subtitle">2023/2024</p>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>+ CREATE NEW</a>
+                </div>
+                <hr>
+                <div class="module-actions">
+                    <a>VIEW LEDGERS</a>
+                </div>
+                <button class="view-btn">VIEW</button>
+            </div> -->
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!--  Modal 1-->
+    <div class="modal-container overlay hidden" id="myModal">
+        <div class="modal-header-container">
+            <h3 class="modal-header">Create New Acadamic Year</h3>
+            <span class="btn-close close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <div class="form-item-wrapper">
+                    <div class="form-item">
+                        <label for="" class="form-label">Description</label>
+                        <div class="text-input-wrapper">
+                            <input type="text" class="text-input" placeholder="E.g. 2019/2020">
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <label for="" class="form-label">Start Date</label>
+                        <div class="text-input-wrapper">
+                            <input type="date" class="text-input">
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <label for="" class="form-label">End Date</label>
+                        <div class="text-input-wrapper">
+                            <input type="date" class="text-input">
+                        </div>
+                    </div>
+                    <p class="note-text">
+                        Note: Duration must be at least 7 months and should cover the period of all terms and semesters
+                        for the academic year
+                    </p>
+                    <button type="submit" class="modal-submit-button">SUBMIT</button>
+                    <button type="submit" class="modal-cancel-button">CANCEL</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal-container customheight overlay-2 hidden" id="myModal2">
+        <div class="modal-header-container">
+            <h3 class="modal-header">Add Budget</h3>
+            <span class="btn-close2 close" style="margin-left: 60%;">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <div class="form-item-wrapper">
+                    <div class="form-item">
+                        <label for="" class="form-label">Acadamic Year</label>
+                        <select class="text-input-wrapper text-input padding select bg-gray">
+                            <option class="option" value disabled selected>Select Acadamic Year</option>
+                            <option class="option" value >2023/2024</option>
+                            <option class="option" value >2023</option>
+                            <option class="option" value >2022</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="modal-submit-button">SUBMIT</button>
+                    <button type="submit" class="modal-cancel-button">CANCEL</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="student-payment-modal-container overlay-3 hidden" id="myModal3">
+        <div class="modal-header-container">
+            <h3 class="modal-header">Recieve Student Payment</h3>
+            <span class="btn-close3 close" style="margin-left: 60%;">&times;</span>
+        </div>
+        <div class="modal-body scroll" data-simplebar>
+            <form action="">
+                <div class="form-item-wrapper-payments">
+                    <div class="form-item-1">
+                        <div class="sub-div">
+                            <label for="" class="form-label">Sudent Class</label>
+                            <select class="text-input-wrapper text-input padding select bg-gray">
+                                <option class="option" value disabled selected>Select Student Class</option>
+                                <option class="option" value>DAISY</option>
+                                <option class="option" value>DAFFODIL</option>
+                                <option class="option" value>TULIP</option>
+                                <option class="option" value>FLAMBOYANT</option>
+                                <option class="option" value>APRICOT</option>
+                                <option class="option" value>KUMQUAT</option>
+                                <option class="option" value>LYCHEE</option>
+                                <option class="option" value>KIWANO</option>
+                            </select>
+                        </div>
+                        <div class="sub-div-2">
+                            <label for="" class="form-label">Sudent</label>
+                            <input class="text-input-wrapper text-input padding bg-gray" />
+                        </div>
+                    </div>
+                    <div class="modal-header-container mr">
+                        <h3 class="modal-header">Pay in-bulk</h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Bill Item</th>
+                                    <th>Amount Billed</th>
+                                    <th>Balance Due</th>
+                                    <th>Amount to Pay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>FACILITY USER FEES</td>
+                                    <td>30.00</td>
+                                    <td class="font-bold">30.00</td>
+                                    <td>
+                                        <div class="">
+                                            <div class="">
+                                                <div class=""><input placeholder="eg 100" type="number"
+                                                        class="number-input" title="eg 100" step="0.01" max="30"
+                                                        value=""></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>LEARNING RESOURCES</td>
+                                    <td>70.00</td>
+                                    <td class="font-bold">70.00</td>
+                                    <td>
+                                        <div class="">
+                                            <div class="">
+                                                <div class=""><input placeholder="eg 100" type="number"
+                                                        class="number-input" title="eg 100" step="0.01" max="70"
+                                                        value=""></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>TUITION AND CARE</td>
+                                    <td>820.00</td>
+                                    <td class="font-bold">230.00</td>
+                                    <td>
+                                        <div class="">
+                                            <div class="">
+                                                <div class=""><input placeholder="eg 100" type="number"
+                                                        class="number-input" title="eg 100" step="0.01" max="230"
+                                                        value=""></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ARREARS</td>
+                                    <td>520.00</td>
+                                    <td class="font-bold">170.00</td>
+                                    <td>
+                                        <div class="">
+                                            <div class="">
+                                                <div class=""><input placeholder="eg 100" type="number"
+                                                        class="number-input" title="eg 100" step="0.01" max="170"
+                                                        value=""></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+                        <div class="form-item-1">
+                            <div class="sub-div">
+                                <label for="" class="form-label">Payment Date</label>
+                                <input type="date" class="text-input" />
+
+                            </div>
+                            <div class="sub-div-2">
+                                <label for="" class="form-label">Debit Account (Cash or Bank Account)</label>
+                                <select class="text-input-wrapper text-input padding select bg-gray">
+                                    <option class="option" value disabled selected>Select Account to Debit</option>
+                                    <option class="option" value>PETTY CASH</option>
+                                    <option class="option" value>CASH BOOK</option>
+                                    <option class="option" value>CBG ATOMIC</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-item-1 w-100">
+                            <div class="sub-div w-100">
+                                <label for="" class="form-label">Description</label>
+                                <input type="text" class="text-input w-100" />
+                            </div>
+                            </div>
+                            <hr>
+                        <div class="form-item-1">
+                            <div class="sub-div">
+                                <label for="" class="form-label">Payment Mode/Source</label>
+                                <select class="text-input-wrapper text-input padding select bg-gray">
+                                    <option class="option" value disabled selected>Select Payment Mode or Source</option>
+                                    <option class="option" value>CASH</option>
+                                    <option class="option" value>CHEQUE</option>
+                                    <option class="option" value>BANK TRANSFER</option>
+                                    <option class="option" value>BANKERS DRAFT</option>
+                                    <option class="option" value>MOBILE MONEY</option>
+                                    <option class="option" value>STUDENT DEPOSIT ACCOUNT</option>
+                                </select>
+                            </div>
+                            <div class="sub-div-2">
+                                <label for="" class="form-label">Cheque Number</label>
+                                <input type="text" class="text-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="modal-submit-button">SUBMIT</button>
+                    <button type="submit" class="modal-cancel-button">CANCEL</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="other-payment-modal-container overlay hidden" id="myModal4">
+        <div class="modal-header-container">
+            <h3 class="modal-header">Recieve Other Payment</h3>
+            <span class="close btn-close4">&times;</span>
+        </div>
+        <div class="modal-body scroll-2" data-simplebar>
+            <form action="">
+                <div class="form-item-wrapper">
+                    <div class="form-item">
+                        <label for="" class="form-label">Payment Date</label>
+                        <div class="text-input-wrapper">
+                            <input type="date" class="text-input">
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Credit Account (Source of Income)</label>
+                            <select class="text-input-wrapper text-input padding select bg-gray">
+                                <option class="option" value disabled selected>Select Account to Credit</option>
+                                <option class="option" value>MISCELLANEOUS</option>
+                                <option class="option" value>LOAN</option>
+                                <option class="option" value>EXAMINATION LEVY</option>
+                                <option class="option" value>RENT INCOME</option>
+                                <option class="option" value>MINI MART INCOME</option>
+                                <option class="option" value>BOOKSHOP INCOME</option>
+                                <option class="option" value>EDUCATIONAL TOUR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Debit Account (Cash or Bank Account)</label>
+                            <select class="text-input-wrapper text-input padding select bg-gray">
+                                <option class="option" value disabled selected>Select Account to Debit</option>
+                                <option class="option" value>PETTY CASH</option>
+                                <option class="option" value>CASH BOOK</option>
+                                <option class="option" value>CBG ATOMIC</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Amount</label>
+                            <input type="text" class="text-input" placeholder="Please Enter Amount"/>
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                    <div class="">
+                        <label for="" class="form-label">Payment Mode</label>
+                        <select class="text-input-wrapper text-input padding select bg-gray">
+                            <option class="option" value disabled selected>Select Payment Mode</option>
+                            <option class="option" value>CASH</option>
+                            <option class="option" value>CHEQUE</option>
+                            <option class="option" value>BANK TRANSFER</option>
+                            <option class="option" value>BANKERS DRAFT</option>
+                            <option class="option" value>MOBILE MONEY</option>
+                            <option class="option" value>STUDENT DEPOSIT ACCOUNT</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Cheque Number</label>
+                            <input type="text" class="text-input" placeholder="Enter Cheque Number"/>
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Recieved From</label>
+                            <input type="text" class="text-input" placeholder="Who are you recieving the payment from ?"/>
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Description</label>
+                            <input type="text" class="text-input" placeholder="Add a Description"/>
+                        </div>
+                    </div>
+                    <button type="submit" class="modal-submit-button">SUBMIT</button>
+                    <button type="submit" class="modal-cancel-button">CANCEL</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div class="record-exp-modal-container overlay hidden" id="myModal5">
+        <div class="modal-header-container">
+            <h3 class="modal-header">New General Expenditure</h3>
+            <span class="close btn-close5">&times;</span>
+        </div>
+        <div class="modal-body scroll-2" data-simplebar="">
+            <form action="">
+                <div class="form-item-wrapper">
+                    <div class="form-item">
+                        <label for="" class="form-label">Payment Date</label>
+                        <div class="text-input-wrapper">
+                            <input type="date" class="text-input">
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Debit Account (Expenditure)</label>
+                            <select class="text-input-wrapper text-input padding select bg-gray">
+                                <option class="option" value disabled selected>Select Expense</option>
+                                <option class="option">Suspense Account</option>
+                                <option class="option">Miscellaneous</option>
+                                <option class="option">Depreciation</option>
+                                <option class="option">Tax</option>
+                                <option class="option">Bad Debt Written Off</option>
+                                <option class="option">School Fee Rebate</option>
+                                <option class="option">Scholarship Grant</option>
+                                <option class="option">Staff Welfare</option>
+                                <option class="option">Refreshment</option>
+                                <option class="option">Business Promotion/Advertisement
+                                </option>
+                                <option class="option">License &amp; Registration</option>
+                                <option class="option">Mini Mart</option>
+                                <option class="option">First Aid/Medicals</option>
+                                <option class="option">Educational Tour</option>
+                                <option class="option">Ground Rent</option>
+                                <option class="option">Business Operating Permit</option>
+                                <option class="option">Advertising &amp; Publicity</option>
+                                <option class="option">Bank Charges</option>
+                                <option class="option">Management Committee</option>
+                                <option class="option">Audit &amp; Consultancy Fees</option>
+                                <option class="option">General &amp; Administrative</option>
+                                <option class="option">Printing &amp; Stationery</option>
+                                <option class="option">Book Shop</option>
+                                <option class="option">Waiver Account</option>
+                                <option class="option">Discount Account</option>
+                                <option class="option">Teaching Aids</option>
+                                <option class="option">Academic Inspection</option>
+                                <option class="option">Sports &amp; Games</option>
+                                <option class="option">Examination Expenses</option>
+                                <option class="option">Detergents</option>
+                                <option class="option">Cleaning Items</option>
+                                <option class="option">Garbage</option>
+                                <option class="option">Workmanship</option>
+                                <option class="option">Repairs</option>
+                                <option class="option">Oil</option>
+                                <option class="option">Fuel</option>
+                                <option class="option">Gas</option>
+                                <option class="option">Cooking Tools</option>
+                                <option class="option">Water</option>
+                                <option class="option">Food</option>
+                                <option class="option">Insurance</option>
+                                <option class="option">Internet</option>
+                                <option class="option">Telephone</option>
+                                <option class="option">Water</option>
+                                <option class="option">Electricity</option>
+                                <option class="option">Painting</option>
+                                <option class="option">Vehicle Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Plumbing Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Electrical Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Furniture Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Building Maintenance</option>
+                                <option class="option">Equipment Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Casual Wages</option>
+                                <option class="option">Provident Fund (SSNIT Tier 3)</option>
+                                <option class="option">SSNIT Employer</option>
+                                <option class="option">Other Allowances</option>
+                                <option class="option">Staff Motivation</option>
+                                <option class="option">Bonuses</option>
+                                <option class="option">Transportation Allowance</option>
+                                <option class="option">Responsibility Allowance</option>
+                                <option class="option">Basic Salary</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Credit Account (Cash or Bank Account)</label>
+                            <select class="text-input-wrapper text-input padding select bg-gray">
+                                <option class="option" value disabled selected>Select Account to Debit</option>
+                                <option class="option" value>PETTY CASH</option>
+                                <option class="option" value>CASH BOOK</option>
+                                <option class="option" value>CBG ATOMIC</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Amount Paid</label>
+                            <input type="text" class="text-input" placeholder="Please Enter Amount" />
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Paid to</label>
+                            <input type="text" class="text-input" placeholder="Who was the money paid to" />
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Description</label>
+                            <input type="text" class="text-input" placeholder="Add a Description" />
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="modal-draft-button-small">SAVE AS DRAFT</button>
+                        <button type="submit" class="modal-submit-button-small">SUBMIT FOR APROVAL</button>
+                    </div>
+                        <button type="submit" class="modal-cancel-button">CANCEL</button>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

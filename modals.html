@@ -194,13 +194,14 @@
                                 <label for="" class="form-label">Description</label>
                                 <input type="text" class="text-input w-100" />
                             </div>
-                            </div>
-                            <hr>
+                        </div>
+                        <hr>
                         <div class="form-item-1">
                             <div class="sub-div">
                                 <label for="" class="form-label">Payment Mode/Source</label>
                                 <select class="text-input-wrapper text-input padding select bg-gray">
-                                    <option class="option" value disabled selected>Select Payment Mode or Source</option>
+                                    <option class="option" value disabled selected>Select Payment Mode or Source
+                                    </option>
                                     <option class="option" value>CASH</option>
                                     <option class="option" value>CHEQUE</option>
                                     <option class="option" value>BANK TRANSFER</option>
@@ -267,43 +268,173 @@
                     <div class="form-item mt-20">
                         <div class="">
                             <label for="" class="form-label">Amount</label>
-                            <input type="text" class="text-input" placeholder="Please Enter Amount"/>
+                            <input type="text" class="text-input" placeholder="Please Enter Amount" />
                         </div>
                     </div>
                     <div class="form-item mt-20">
-                    <div class="">
-                        <label for="" class="form-label">Payment Mode</label>
-                        <select class="text-input-wrapper text-input padding select bg-gray">
-                            <option class="option" value disabled selected>Select Payment Mode</option>
-                            <option class="option" value>CASH</option>
-                            <option class="option" value>CHEQUE</option>
-                            <option class="option" value>BANK TRANSFER</option>
-                            <option class="option" value>BANKERS DRAFT</option>
-                            <option class="option" value>MOBILE MONEY</option>
-                            <option class="option" value>STUDENT DEPOSIT ACCOUNT</option>
-                        </select>
-                    </div>
+                        <div class="">
+                            <label for="" class="form-label">Payment Mode</label>
+                            <select class="text-input-wrapper text-input padding select bg-gray">
+                                <option class="option" value disabled selected>Select Payment Mode</option>
+                                <option class="option" value>CASH</option>
+                                <option class="option" value>CHEQUE</option>
+                                <option class="option" value>BANK TRANSFER</option>
+                                <option class="option" value>BANKERS DRAFT</option>
+                                <option class="option" value>MOBILE MONEY</option>
+                                <option class="option" value>STUDENT DEPOSIT ACCOUNT</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-item mt-20">
                         <div class="">
                             <label for="" class="form-label">Cheque Number</label>
-                            <input type="text" class="text-input" placeholder="Enter Cheque Number"/>
+                            <input type="text" class="text-input" placeholder="Enter Cheque Number" />
                         </div>
                     </div>
                     <div class="form-item mt-20">
                         <div class="">
                             <label for="" class="form-label">Recieved From</label>
-                            <input type="text" class="text-input" placeholder="Who are you recieving the payment from ?"/>
+                            <input type="text" class="text-input"
+                                placeholder="Who are you recieving the payment from ?" />
                         </div>
                     </div>
                     <div class="form-item mt-20">
                         <div class="">
                             <label for="" class="form-label">Description</label>
-                            <input type="text" class="text-input" placeholder="Add a Description"/>
+                            <input type="text" class="text-input" placeholder="Add a Description" />
                         </div>
                     </div>
                     <button type="submit" class="modal-submit-button">SUBMIT</button>
                     <button type="submit" class="modal-cancel-button">CANCEL</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="record-exp-modal-container">
+        <div class="modal-header-container">
+            <h3 class="modal-header">New General Expenditure</h3>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body scroll-2" data-simplebar="">
+            <form action="">
+                <div class="form-item-wrapper">
+                    <div class="form-item">
+                        <label for="" class="form-label">Payment Date</label>
+                        <div class="text-input-wrapper">
+                            <input type="date" class="text-input">
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Debit Account (Expenditure)</label>
+                            <select class="text-input-wrapper text-input padding select bg-gray">
+                                <option class="option" value disabled selected>Select Expense</option>
+                                <option class="option">Suspense Account</option>
+                                <option class="option">Miscellaneous</option>
+                                <option class="option">Depreciation</option>
+                                <option class="option">Tax</option>
+                                <option class="option">Bad Debt Written Off</option>
+                                <option class="option">School Fee Rebate</option>
+                                <option class="option">Scholarship Grant</option>
+                                <option class="option">Staff Welfare</option>
+                                <option class="option">Refreshment</option>
+                                <option class="option">Business Promotion/Advertisement
+                                </option>
+                                <option class="option">License &amp; Registration</option>
+                                <option class="option">Mini Mart</option>
+                                <option class="option">First Aid/Medicals</option>
+                                <option class="option">Educational Tour</option>
+                                <option class="option">Ground Rent</option>
+                                <option class="option">Business Operating Permit</option>
+                                <option class="option">Advertising &amp; Publicity</option>
+                                <option class="option">Bank Charges</option>
+                                <option class="option">Management Committee</option>
+                                <option class="option">Audit &amp; Consultancy Fees</option>
+                                <option class="option">General &amp; Administrative</option>
+                                <option class="option">Printing &amp; Stationery</option>
+                                <option class="option">Book Shop</option>
+                                <option class="option">Waiver Account</option>
+                                <option class="option">Discount Account</option>
+                                <option class="option">Teaching Aids</option>
+                                <option class="option">Academic Inspection</option>
+                                <option class="option">Sports &amp; Games</option>
+                                <option class="option">Examination Expenses</option>
+                                <option class="option">Detergents</option>
+                                <option class="option">Cleaning Items</option>
+                                <option class="option">Garbage</option>
+                                <option class="option">Workmanship</option>
+                                <option class="option">Repairs</option>
+                                <option class="option">Oil</option>
+                                <option class="option">Fuel</option>
+                                <option class="option">Gas</option>
+                                <option class="option">Cooking Tools</option>
+                                <option class="option">Water</option>
+                                <option class="option">Food</option>
+                                <option class="option">Insurance</option>
+                                <option class="option">Internet</option>
+                                <option class="option">Telephone</option>
+                                <option class="option">Water</option>
+                                <option class="option">Electricity</option>
+                                <option class="option">Painting</option>
+                                <option class="option">Vehicle Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Plumbing Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Electrical Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Furniture Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Building Maintenance</option>
+                                <option class="option">Equipment Repair &amp; Maintenance
+                                </option>
+                                <option class="option">Casual Wages</option>
+                                <option class="option">Provident Fund (SSNIT Tier 3)</option>
+                                <option class="option">SSNIT Employer</option>
+                                <option class="option">Other Allowances</option>
+                                <option class="option">Staff Motivation</option>
+                                <option class="option">Bonuses</option>
+                                <option class="option">Transportation Allowance</option>
+                                <option class="option">Responsibility Allowance</option>
+                                <option class="option">Basic Salary</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Credit Account (Cash or Bank Account)</label>
+                            <select class="text-input-wrapper text-input padding select bg-gray">
+                                <option class="option" value disabled selected>Select Account to Debit</option>
+                                <option class="option" value>PETTY CASH</option>
+                                <option class="option" value>CASH BOOK</option>
+                                <option class="option" value>CBG ATOMIC</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Amount Paid</label>
+                            <input type="text" class="text-input" placeholder="Please Enter Amount" />
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Paid to</label>
+                            <input type="text" class="text-input" placeholder="Who was the money paid to" />
+                        </div>
+                    </div>
+                    <div class="form-item mt-20">
+                        <div class="">
+                            <label for="" class="form-label">Description</label>
+                            <input type="text" class="text-input" placeholder="Add a Description" />
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="modal-draft-button-small">SAVE AS DRAFT</button>
+                        <button type="submit" class="modal-submit-button-small">SUBMIT FOR APROVAL</button>
+                    </div>
+                        <button type="submit" class="modal-cancel-button">CANCEL</button>
+                    
                 </div>
             </form>
         </div>
